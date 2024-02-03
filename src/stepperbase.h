@@ -55,8 +55,6 @@ namespace TS4
         inline void stepISR();
         inline void rotISR();
         inline void resetISR();
-        inline void enable();
-        inline void disable();
 
         enum class mode_t {
             target,
@@ -240,18 +238,6 @@ namespace TS4
             digitalWriteFast(stepper->stepPin, LOW);
             stepper = stepper->next;
         }
-    }
-
-    void StepperBase::enable()
-    {
-        StepperBase* stepper = this;
-        digitalWriteFast(stepper->enPin, HIGH);
-    }
-
-    void StepperBase::disable()
-    {
-        StepperBase* stepper = this;
-        digitalWriteFast(stepper->enPin, LOW);
     }
 }
 #pragma pop_macro("abs")

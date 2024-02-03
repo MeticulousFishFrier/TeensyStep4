@@ -72,12 +72,12 @@ namespace TS4
     
     void Stepper::enable()
     {
-        StepperBase::enable();
+        digitalWriteFast(enPin, HIGH);
     }
 
     void Stepper::disable()
     {
-         StepperBase::disable();
+        digitalWriteFast(enPin, LOW);
     }
 
     // void moveRelAsync(int delta);
