@@ -32,7 +32,8 @@ namespace TS4
         void rotateAsync(int32_t v = 0);
         void stopAsync();
         void stop();
-
+        void enable();
+        void disable();
 
 
         int32_t vMax = vMaxDefault;

@@ -69,6 +69,17 @@ namespace TS4
         StepperBase::startStopping(0, acc);
     }
 
+    
+    void Stepper::enable()
+    {
+        StepperBase::enable();
+    }
+
+    void Stepper::disable()
+    {
+         StepperBase::disable();
+    }
+
     // void moveRelAsync(int delta);
     // void moveRel(int delta);
 }
