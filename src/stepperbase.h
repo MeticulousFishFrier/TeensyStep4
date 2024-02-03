@@ -22,7 +22,7 @@ namespace TS4
 
 
      protected:
-        StepperBase(const int stepPin, const int dirPin);
+        StepperBase(const int stepPin, const int dirPin, const int enPin);
 
         void startMoveTo(int32_t s_tgt, int32_t v_e, uint32_t v_max, uint32_t a);
         void startRotate(int32_t v_max, uint32_t a);
@@ -49,12 +49,14 @@ namespace TS4
 
         inline void doStep();
 
-        const int stepPin, dirPin;
+        const int stepPin, dirPin, enPin;
 
         ITimer* stpTimer;
         inline void stepISR();
         inline void rotISR();
         inline void resetISR();
+        inline void enable();
+        inline void disable();
 
         enum class mode_t {
             target,
@@ -238,6 +240,18 @@ namespace TS4
             digitalWriteFast(stepper->stepPin, LOW);
             stepper = stepper->next;
         }
+    }
+
+    void StepperBase::enable()
+    {
+        StepperBase* stepper = this;
+        digitalWriteFast(stepper->enPin, HIGH);
+    }
+
+    void StepperBase::disable()
+    {
+        StepperBase* stepper = this;
+        digitalWriteFast(stepper->enPin, LOW);
     }
 }
 #pragma pop_macro("abs")

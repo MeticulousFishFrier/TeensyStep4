@@ -8,12 +8,12 @@
 
 namespace TS4
 {
-    StepperBase::StepperBase(int _stepPin, int _dirPin)
-        : s(0), v(0), v_sqr(0), stepPin(_stepPin), dirPin(_dirPin)
+    StepperBase::StepperBase(int _stepPin, int _dirPin, int enPin)
+        : s(0), v(0), v_sqr(0), stepPin(_stepPin), dirPin(_dirPin), enPin(enPin)
     {
         pinMode(stepPin, OUTPUT);
         pinMode(dirPin, OUTPUT);
-
+        pinMode(enPin, OUTPUT);
         // setMaxSpeed(vMaxDefault);
     }
 

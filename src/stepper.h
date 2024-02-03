@@ -7,8 +7,8 @@ namespace TS4
     class Stepper : public StepperBase
     {
      public:
-        Stepper(int stepPin, int dirPin)
-            : StepperBase(stepPin, dirPin)
+        Stepper(int stepPin, int dirPin, int enPin)
+            : StepperBase(stepPin, dirPin, enPin)
         {}
 
         int32_t getPosition() const { return pos; }
