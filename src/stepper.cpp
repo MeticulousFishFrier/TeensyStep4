@@ -69,15 +69,19 @@ namespace TS4
         StepperBase::startStopping(0, acc);
     }
 
+    void Stepper::setEnablePinInverted(bool enableInvert)
+    {
+        invEn = enableInvert;
+    }
     
     void Stepper::enable()
     {
-        digitalWriteFast(enPin, HIGH);
+        digitalWriteFast(enPin, HIGH & !invEn);
     }
 
     void Stepper::disable()
     {
-        digitalWriteFast(enPin, LOW);
+        digitalWriteFast(enPin, LOW & !invEn);
     }
 
     // void moveRelAsync(int delta);

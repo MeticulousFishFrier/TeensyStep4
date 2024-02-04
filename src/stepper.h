@@ -32,6 +32,8 @@ namespace TS4
         void rotateAsync(int32_t v = 0);
         void stopAsync();
         void stop();
+
+        void setEnablePinInverted(bool enableInvert);
         void enable();
         void disable();
 

@@ -50,6 +50,7 @@ namespace TS4
         inline void doStep();
 
         const int stepPin, dirPin, enPin;
+        bool invEn = false;
 
         ITimer* stpTimer;
         inline void stepISR();
